@@ -1,0 +1,29 @@
+{%extends 'delivery/delivery.html'%}
+{%load static%}
+{%block 'all'%} 
+<h3 align="center" class="card" style="font-weight: bolder; margin-bottom: 20px; margin-top: 10px">Order History</h3>
+
+<div class="container card">
+<table class="table table-hover">
+	
+	<tr>
+		<th>booking Id</th>
+		<th>Time</th>
+		<th>Order Name</th>
+		<th>Restaurant Name</th>
+		<th>Customer</th>
+		
+	</tr>
+	{%for i in book%}
+	<tr>
+		<td>{{i.bookingid}}</td>
+		<td>{{i.ordertime}}</td>
+		<td>{{i.food.name}}</td>
+		<td>{{i.rest.name}}</td>
+	
+		<td>{{i.user.user.first_name}}</td>
+	</tr>
+	{%endfor%}
+</table>
+</div>
+{%endblock%}

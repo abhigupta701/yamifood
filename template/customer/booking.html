@@ -1,0 +1,19 @@
+{%extends 'customer/home.html'%}
+
+{%block 'all'%}
+<div style="background-color: white; margin-top: 30px" >
+	<div class="container">
+		<table>
+			<tr>
+				{%for i in book%}
+				<td>{{i}}</td>
+				{%endfor%}
+				
+				
+			</tr>
+		</table>
+	</div>
+
+	
+</div>
+{%endblock%}

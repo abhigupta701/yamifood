@@ -1,0 +1,32 @@
+{%extends 'admin.html'%}
+{%load staticfiles%}
+{%block 'nav'%}
+<!-- Start header -->
+	<header class="top-navbar">
+		<nav class="nav">
+		<div class="title"><img src="{% static 'logo.png' %}" alt="" class="logo"/>
+			<span class="navlist word">Food Delivery System</span>
+			
+		</div>
+		<ul>
+			<li><a class="navlist" href="/">Home</a></li>
+			<li><a class="navlist" href="/menu/">Menu</a></li>
+			<li><a class="navlist" href="/restaurants/">Hotel</a></li>
+			{%ifequal not 0%}
+			<li><a class="navlist" href="/login/">Login</a></li>
+			<li><a class="navlist" href="/signup/">Signup</a></li>
+			{%else%}
+			<li><a class="navlist" href="/logout/">Logout</a></li>
+			{%endifequal%}
+			
+			<li><a class="navlist" href="#">Contect us</a></li>
+		</ul>
+	</nav>
+	
+	</header>
+	<!-- End header -->
+{%endblock%}
+{%block 'all'%}
+<h1 class="bar" style="margin-left: 32%; width: 500px; padding: 50px; font-size: 20px">Please Wait For Admin Response........!!</h1>
+
+{%endblock%}

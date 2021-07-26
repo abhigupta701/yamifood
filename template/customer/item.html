@@ -1,0 +1,86 @@
+{%extends 'customer/menu.html'%}
+{%block 'all'%}
+<style>
+  .bord{
+    box-shadow:  -7px -7px 20px 0 rgba(255,255,255,0.7),7px 7px 20px 0 rgba(0,0,0,0.2);
+  }
+  table tr:hover{
+     box-shadow:inset  -7px -7px 20px 0 rgba(255,255,255,0.7),inset 7px 7px 20px 0 rgba(0,0,0,0.2);
+  }
+  table tr{border: transparent 20px solid; font-size: 20px; font-weight: bolder;}
+  
+
+  }
+  .order:hover{
+    color: red;
+  }
+</style>
+
+<div class="container bord mt-5" style="margin-left: 200px; padding: 50px;width: 1100px ">
+	<div class="bord"style="height:400px; width: 400px; float: left;">
+             <img class="bord" style="height:400px;width: 100%; border-radius: 50px; padding: 15px ;" src="{{item.image.url}}" id="main" alt="" >
+              </div>
+              <div class="bord" style="width: 400px; height: 400px;margin-left: 49%; padding: 20px;">
+              	<h4 class="" style="font-size: 25px; padding: 5px; font-weight: bolder;font-family: time">
+                  {{item.name}}
+                </h4>
+                <br/><br/>
+                <p class="" style="font-size: 20px; padding: 5px; font-weight: bolder; margin-top: -30px; font-family: time; overflow: auto; height: 150px"> details : {{item.details}}</p>	
+              </div>
+              <h5 class="bord" style="font-size: 25px;border-radius: 5px; font-weight: bolder;font-family: time; position: absolute; padding: 5px; margin-left: 38%; margin-top: -160px">₹ {{item.price}}</h5>
+              <div style="position: absolute; margin-top:-100px ;margin-left: 38%">
+                <small class="text-muted"><a style="color: white"  data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary"><i class="fas fa-shopping-basket"></i> Order Now</a></small>
+              </div>
+              <center class="bord" style="position: absolute; margin-left: -180px; margin-top: -350px; height: 300px;width: 80px ;overflow: auto;">
+            <br>{%for i in img%}
+            <img class="bord" onclick="swapImage('{{i.id}}')" id="{{i.id}}" src="{{i.image.url}}" style="height: 60px;width: 60px;padding: 5px; display: block;"/>&nbsp;&nbsp;&nbsp;&nbsp;
+            {%endfor%}      
+        </center>
+</div>
+<div class="container bord" style=" margin-top: 50px; margin-bottom: 50px; margin-left: 200px; width: 1100px">
+  <h2 align="center" class="card" style="font-weight: bolder;padding: 10px;font-family: time">{{item.restaurant.name}}</h2>
+<table style="width: 100%; ">
+	{%for i in food%}
+	<tr>
+		<td><img src="{{i.image.url}}" style="height: 100px;width: 100px; border-radius: 50%"> {{i.name}}</td>
+		<td>₹ {{i.price}}</td>
+    <td><a href="{%url 'customer:item' id=i.id%}" class="order"  style="color: green; ">Order Now</a></td>
+	</tr>
+	{%endfor%}
+
+  <!-- Button trigger modal -->
+    
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLongTitle">Your Item Is.......!!</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h3>{{item.name}}</h3>
+        <h3>{{item.price}}</h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <a href="{%url 'customer:cart' id=item.id%}" class="btn btn-primary">Add To Cart</a>
+      </div>
+    </div>
+  </div>
+</div>
+</table>
+</div>
+        <script>
+            function swapImage(id){
+               var currentImage = document.getElementById(id);
+               var mainImage = document.getElementById("main");   
+               var temp = mainImage.src;
+               mainImage.src = currentImage.src;
+               currentImage.src = temp;
+            }
+        </script>        
+{%endblock%}

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+{% block 'full'%}
+<html lang="en"><!-- Basic -->
+<head>
+	<meta charset="utf-8">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <!-- Site Metas -->
+    <title>User Module</title>  
+    <meta name="keywords" content="food, online delivery">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="{% static 'logo.png'%}" type="image/x-icon">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">    
+	<!-- Site CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">    
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css'%}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/custom.css'%}">
+
+    <link rel="stylesheet" type="text/css" href="{%static 'style.css'%}">
+    
+
+</head>
+<body>
+	
+	{%block 'nav'%}
+	<!-- Start header -->
+	<header class="top-navbar">
+		<nav class="nav">
+		<div class="title" style="width: 55%"><img src="{% static 'logo.png' %}" alt="" class="logo"/>
+			<span class="navlist word">Food Delivery System</span>
+			<form class="searchform" method="post" action="/customer/search/">
+				{%csrf_token%}
+				<input class="search" type="search" name="search" placeholder="    Search....!!" />
+				<input class="bar" type="submit" name="" value="search"> 
+			</form>
+		</div>
+		<ul style="width: 600px; margin-top: -6px; margin-left: -20px" >
+			<li class="mr-2"><a class="navlist" href="/"><i class="fas fa-home"></i> Home</a></li>
+			<li class="mr-2"><a class="navlist" href="/menu/"><i class="fas fa-utensils"></i> Menu</a></li>
+			<li class="mr-2"><a class="navlist" href="/restaurants/"><i class="fas fa-pizza-slice"></i> Hotel</a></li>
+			{%ifequal not 0%}
+			<li class="mr-2"><a class="navlist" href="/login/"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+			<li class="mr-2"><a class="navlist" href="/signup/"><i class="fas fa-user-plus"></i> Signup</a></li>
+			{%else%}
+			<li class="mr-2"><a class="navlist" href="/logout/"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+			<li class="mr-2"><a class="navlist" href="/customer/profile/"><i class="far fa-user"></i> Profile</a></li>
+			{%endifequal%}
+			
+			<li class="mr-2"><a class="navlist" href="/cart/"><i class="fas fa-cart-arrow-down"></i> Cart <sup>{{count}}</sup></a></li>
+		</ul>
+	</nav>
+	
+	
+	</header>
+	<!-- End header -->
+	{%endblock%}
+	{% block 'all'%}
+	{%block 'slide'%}
+	<!-- Start slides -->
+	<div id="slides" class="cover-slides mt-4">
+		<ul class="slides-container">
+			<li class="text-center">
+				<img src="{% static 'images/slider-01.jpg'%}" alt="">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h1 class="m-b-20"><strong>Welcome To <br> Yamifood Delivery</strong></h1>
+							<p class="m-b-40">The online Food delivery system  <br> 
+							we use competitive market to arrange for delivery of our food supply</p>
+							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="/menu/">Order Now</a></p>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li class="text-center">
+				<img src="{%static 'images/slider-02.jpg'%}" alt="">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h1 class="m-b-20"><strong>Welcome To <br> Yamifood Delivery</strong></h1>
+							<p class="m-b-40">The online Food delivery system   <br> 
+							we use competitive market to arrange for delivery of our food supply</p>
+							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="/restaurants/">Book Table Now</a></p>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li class="text-center">
+				<img src="{%static 'images/slider-03.jpg'%}" alt="">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h1 class="m-b-20"><strong>Welcome To <br> Yamifood Delivery</strong></h1>
+							<p class="m-b-40">The online Food delivery system  <br> 
+							we use competitive market to arrange for delivery of our food supply.</p>
+							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="/menu/">Order Now</a></p>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<div class="slides-navigation">
+			<a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+			<a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+		</div>
+	</div>
+	<!-- End slides -->
+	{%endblock%}
+	{%block 'about'%}
+	<!-- Start About -->
+	<div class="about-section-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<img src="{% static 'images/about-img.jpg' %}" alt="" class="img-fluid">
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-12 text-center">
+					<div class="inner-column">
+						<h1>Welcome To <span>Food Delivery system</span></h1>
+						<h4>Little Story</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque auctor suscipit feugiat. Ut at pellentesque ante, sed convallis arcu. Nullam facilisis, eros in eleifend luctus, odio ante sodales augue, eget lacinia lectus erat et sem. </p>
+						<p>Sed semper orci sit amet porta placerat. Etiam quis finibus eros. Sed aliquam metus lorem, a pellentesque tellus pretium a. Nulla placerat elit in justo vestibulum, et maximus sem pulvinar.</p>
+						<a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Order</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End About -->
+	{%endblock%}	
+	<!-- Start QT -->
+	<div class="qt-box qt-background">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 ml-auto mr-auto text-left">
+					<p class="lead " style="color: black">
+						" If you're not the one cooking, stay out of the way and compliment the chef. "
+					</p>
+					<span class="lead" style="color: black">Michael Strahan</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End QT -->
+	
+	<!-- Start Menu -->
+	<div class="menu-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="heading-title text-center">
+						<h2 >Trending Menu</h2>
+						<p></p>
+					</div>
+				</div>
+			</div>
+		<!--<div class="row">
+				<div class="col-lg-12">
+					<div class="special-menu text-center">
+						<div class="button-group filter-button-group">
+			 				<button class="active" data-filter="*">All</button>
+							<button data-filter=".drinks">Drinks</button>
+							<button data-filter=".lunch">Lunch</button>
+							<button data-filter=".dinner">Dinner</button>
+						</div>
+					</div>
+				</div>
+			</div>-->
+				
+			<div class="row special-list">
+				{%for i in food%}
+				<div class="col-lg-4 col-md-6 special-grid drinks" style="">
+					<div class="gallery-single fix">
+						<img src="{{i.image.url}}" class="img-fluid" alt="Image">
+						<div class="why-text">
+							<a href="{%url 'customer:item' id=i.id%}">
+							<h4>{{i.name}}</h4>
+							<p style="font-size: 15px">{{i.details}}</p>
+							<h5> ₹ {{i.price}}</h5></a>
+						</div>
+					</div>
+				</div>
+					{%endfor%}	
+			</div>
+			
+		</div>
+	</div>
+	<!-- End Menu -->
+	
+	<!-- Start Gallery -->
+	<div class="gallery-box">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="heading-title text-center">
+						<h2>Gallery</h2>
+						<p></p>
+					</div>
+				</div>
+			</div>
+			<div class="tz-gallery">
+				<div class="row">
+					
+					<div class="col-sm-12 col-md-4 col-lg-4">
+						<a class="lightbox" href="">
+							<img class="img-fluid" src="{%static '1.jpg'%}" style="height: 300px" alt="Gallery Images">
+						</a>
+					</div>
+					<div class="col-sm-12 col-md-4 col-lg-4">
+						<a class="lightbox" href="">
+							<img class="img-fluid" src="{%static '2.jpg'%}" style="height: 300px" alt="Gallery Images">
+						</a>
+					</div>
+					<div class="col-sm-12 col-md-4 col-lg-4">
+						<a class="lightbox" href="">
+							<img class="img-fluid" src="{%static '3.jpg'%}" style="height: 300px" alt="Gallery Images">
+						</a>
+					</div>
+					
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+	<!-- End Gallery -->
+	
+	<!-- Start Customer Reviews
+	<div class="customer-reviews-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="heading-title text-center">
+						<h2>Customer Reviews</h2>
+						<p></p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row" >
+				<div class="col-md-8 mr-auto ml-auto text-center">
+					<div id="reviews" class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner mt-4">
+
+							<div class="carousel-item text-center active">
+								<div class="img-box p-1 border rounded-circle m-auto">
+									<img class="d-block w-100 rounded-circle" src="images/profile-1.jpg" alt="">
+								</div>
+								<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">name</strong></h5>
+								<h6 class="text-dark m-0">customer</h6>
+								<p class="m-0 pt-3">reviews</p>
+							</div>
+							
+							<div class="carousel-item text-center">
+								<div class="img-box p-1 border rounded-circle m-auto">
+									<img class="d-block w-100 rounded-circle" src="images/profile-7.jpg" alt="">
+								</div>
+								<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">name</strong></h5>
+								<h6 class="text-dark m-0">customer</h6>
+								<p class="m-0 pt-3">reviews</p>
+							</div>
+						</div>
+						<a class="carousel-control-prev" href="#reviews" role="button" data-slide="prev">
+							<i class="fa fa-angle-left" aria-hidden="true"></i>
+							<span class="sr-only">Previous</span>
+						</a>
+						<a class="carousel-control-next" href="#reviews" role="button" data-slide="next">
+							<i class="fa fa-angle-right" aria-hidden="true"></i>
+							<span class="sr-only">Next</span>
+						</a>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	 End Customer Reviews -->
+	
+	<!-- Start Contact info -->
+	<div class="contact-imfo-box">
+		<div class="container">
+			<div class="row">
+				
+				<div class="col-md-4">
+					<i class="fa fa-envelope"></i>
+					<div class="overflow-hidden">
+						<h4>Email</h4>
+						<p class="lead">
+							abhigupta701@gmail.com
+						</p>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!-- End Contact info -->
+	{%endblock%}
+	<!-- Start Footer -->
+	<footer class="footer-area bg-f">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6">
+					<h3>About Us</h3>
+					<p>About Food Delivery System.</p>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<h3>Opening hours</h3>
+					
+					<p><span class="text-color">All Week Days :</span> 6:Am - 12PM</p>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<h3>Contact information</h3>
+					<p class="lead"></p>
+					<p class="lead"><a href="#"></a></p>
+					<p><a href="#"> </a></p>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<h3>Subscribe Us</h3>
+					<div class="subscribe_form">
+						
+					</div>
+					<ul class="list-inline f-social" style="width: 250px">
+						<li class="list-inline-item"><a href="https://www.facebook.com/egabhigupta"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						
+						<li class="list-inline-item"><a href="https://www.linkedin.com/in/abhishek-gupta-aa8149117/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+						
+						<li class="list-inline-item"><a href="https://www.instagram.com/a.bhi.shekk/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+					</ul>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="copyright">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<p class="company-name">All Rights Reserved. &copy; 2021 <a href="#">Food Delivery system</a>  
+					<a href="https://html.design/"></a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</footer>
+	<!-- End Footer -->
+	
+	<a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+	<!-- ALL JS FILES -->
+	<script src="{% static 'js/jquery-3.2.1.min.js'%}"></script>
+	<script src="{% static 'js/popper.min.js'%}"></script>
+	<script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <!-- ALL PLUGINS -->
+	<script src="{% static 'js/jquery.superslides.min.js'%}"></script>
+	<script src="{% static 'js/images-loded.min.js'%}"></script>
+	<script src="{% static 'js/isotope.min.js'%}"></script>
+	<script src="{% static 'js/baguetteBox.min.js'%}"></script>
+	<script src="{% static 'js/form-validator.min.js'%}"></script>
+    <script src="{% static 'js/contact-form-script.js'%}"></script>
+    <script src="{% static 'js/custom.js'%}"></script>
+
+</body>
+</html>
+  {%endblock%}

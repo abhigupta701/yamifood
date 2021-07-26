@@ -1,0 +1,79 @@
+{%extends 'customer/home.html'%}
+{%block 'all'%}
+
+<div class="container mt-5 mb-5 card" style=" min-height: 500px; " >
+  {%ifequal x 0%}
+	{%if cart%}
+	<form method="post">
+		{%csrf_token%}
+<table class="table">
+	{%for i in cart%}
+	<tr>
+		<td><img src="{{i.food.image.url}}" width="100" height="100" style="border-radius: 50px"></td>
+		<td style="padding: 50px">{{i.food.name}}</td>
+		<td style="display: inline-flex;padding: 50px"> quantity:- <input id={{i.food.name}} type="number" min="1" value="1" max="10" name="num" >
+			
+		</td>
+		<td style="padding: 50px; font-weight: bolder;"><a data-toggle="modal" data-target="#{{i.id}}">X</a></td>
+		<td></td>
+	</tr>
+
+	<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="{{i.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Do you Really want to Remove this Item</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <h2 align="center">{{i.food.name}}</h2>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <a href="{% url 'customer:del' id=i.id%}" type="button" class="btn btn-danger">Remove</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+	{%endfor%}
+
+</table>
+
+<h3>Address</h3>
+{%for i in add%}
+<input type="radio" required value="{{i.id}}" name="add">{{i.cname}}
+{%endfor%}<br/>
+<input type="submit" value="pay" class="btn btn-danger" style="margin-left: 35%; margin-top: 100px" name="">
+</form>
+<a href="/menu/" style="float: right; color: red; font-size: 20px;font-weight: bolder;">add more</a>
+{%else%}
+<h1 style="margin-top:  220px ;font-size: 25px;font-weight: bolder;clor:white; background-colorr: black" align="center">Your Cart Is Empty <a href="/menu/" style="color: red; "> Click Here To Eat Something</a> </h1>
+{%endif%}
+
+
+
+
+{%else%}
+<div class="card" style="margin-top: 80px; width: 80%; margin-left: 10%">
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<h2 align="center" style="font-size: 35px">Your total Bill is:- {{bill}}</h2>
+<br/>
+<br/>
+<br/>
+<br/>
+<h2 align="center">It Will Be Reach At You in 30 mins </h2>
+</div>
+{%endifequal%}
+</div>
+
+{%endblock%}

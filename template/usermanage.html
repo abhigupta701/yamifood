@@ -1,0 +1,73 @@
+{%extends 'admin.html'%}
+{%load staticfiles%}
+{%block 'all'%}
+
+<h1 class="bar" style="font-size: 25px; font-weight: bolder;margin-left: 40%">Restaurent Managers</h1>
+<div class="row mt-5 container" style="margin-left: 100px" >
+
+{%for i in rest%}
+
+<div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+            	<a href="{%url 'userremove' id=i.id%}" style="position: absolute;background-color: white; font-weight: bolder; margin-left: 230px;width: 15px;font-size: 20px;border-radius: 50%"></a>
+              <a href="/usermanage/"><img class="card-img-top" style="height: 200px" src="{{i.img.url}}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                   <p >Name: {{i.user.first_name}} {{i.user.last_name}}</p>
+                  <p>Username: {{i.user.username}}</p>
+                  
+                  <a href="{%url 'userupdate' id=i.id%}">update</a>
+                </h4>
+                
+              </div>
+            </div>
+          </div>
+{%endfor%}
+
+</div>
+<hr style="border: solid black 5px" />
+<h1 class="bar" style="font-size: 25px; font-weight: bolder;margin-left: 45%">Delivery Boys</h1>
+<div class="row mt-5 container" style="margin-left: 100px" >
+{%for i in deli%}
+<div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+            	<a href="{%url 'userremove' id=i.id%}" style="position: absolute;background-color: white; font-weight: bolder; margin-left: 230px;width: 15px;font-size: 20px;border-radius: 50%">X</a>
+              <a href="/usermanage/"><img class="card-img-top" style="height: 200px" src="{{i.img.url}}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                   <p >Name: {{i.user.first_name}} {{i.user.last_name}}</p>
+                  <p>Username: {{i.user.username}}</p>
+                  
+                  <a href="{%url 'userupdate' id=i.id%}">update</a>
+                </h4>
+                
+              </div>
+            </div>
+          </div>
+{%endfor%}
+</div>
+<hr style="border: solid black 5px" />
+<h1 class="bar" style="font-size: 25px; font-weight: bolder;margin-left: 48%">Customers</h1>
+<div class="row mt-5 container" style="margin-left: 100px" >
+{%for i in cust%}
+<div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+            	<a href="{%url 'userremove' id=i.id%}" style="position: absolute;background-color: white; font-weight: bolder; margin-left: 230px;width: 15px;font-size: 20px;border-radius: 50%">X</a>
+              <a href="/usermanage/"><img class="card-img-top" style="height: 200px" src="{{i.img.url}}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <p >Name: {{i.user.first_name}} {{i.user.last_name}}</p>
+                  <p>Username: {{i.user.username}}</p>
+                  
+                  <a href="{%url 'userupdate' id=i.id%}">update</a>
+
+                </h4>
+                
+              </div>
+            </div>
+          </div>
+{%endfor%}
+
+</div>
+
+{%endblock%}

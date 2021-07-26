@@ -1,0 +1,95 @@
+{%extends 'index.html'%}
+{%load staticfiles%}
+
+{%block 'nav'%}
+<header class="top-navbar">
+		<nav class="nav">
+		<div class="title" style="width: 55%"><img src="{% static 'logo.png' %}" alt="" class="logo"/>
+			<span class="navlist word">Food Delivery System</span>
+			<form class="searchform" action="#">
+				<input class="search" type="search" name="search" placeholder="    Search....!!" />
+				<input class="bar " type="submit" name="" value="search"> 
+			</form>
+		</div>
+		<ul style="width: 530px">
+			<li style="margin-left: 180px"><a class="navlist" href="/delivery/"><i class="fas fa-home"></i> Home</a></li>
+			<li><a class="navlist" href="/delivery/order/"><i class="fas fa-utensils"></i> Order</a></li>
+			<li><a class="navlist" href="/delivery/history"><i class="fas fa-history"></i> history</a></li>
+			{%ifequal not 0%}
+			<li><a class="navlist" href="/login/"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+			<li><a class="navlist" href="/signup/"><i class="fas fa-user-plus"></i> Signup</a></li>
+			{%else%}
+			<li><a class="navlist" href="/logout/"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+			
+			{%endifequal%}
+		</ul>
+	</nav>
+	
+	
+	</header>
+{%endblock%}
+{%block 'all'%}
+{%block 'slide'%}
+	<!-- Start slides -->
+	<div id="slides" class="cover-slides ">
+		<ul class="slides-container">
+			<li class="text-center">
+				<img src="{% static 'deliv4.jpg'%}" alt="">
+				<div class="container">
+					<div class="row">
+						
+					</div>
+				</div>
+			</li>
+			<li class="text-center">
+				<img src="{%static 'deliv1.jpg'%}" alt="">
+				<div class="container">
+					<div class="row">
+						
+					</div>
+				</div>
+			</li>
+			<li class="text-center">
+				<img src="{%static 'deliv2.jpg'%}" alt="">
+				<div class="container">
+					<div class="row">
+						
+					</div>
+				</div>
+			</li>
+		</ul>
+		
+	</div>
+	<!-- End slides -->
+	{%endblock%}
+<br/>
+<div  style="display: inline-flex; width: 100%">
+<div class="card" style="width: 18rem; margin-left: 100px; margin-bottom: 30px">
+  <div class="card-body">
+    <h5 class="card-title">{{request.user}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Rating</h6>
+    <h1 style="font-weight: bolder;font-size: 30">{{rating}} <small>&#9733;</small></h1>
+  </div>
+</div>
+
+<div class="card" style="width: 18rem; margin: 0 100px 30px 150px">
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <h6 class="card-subtitle mb-2 text-muted"></h6>
+    <h1 style="font-weight: bolder;font-size: 30"></h1>
+  </div>
+</div>
+
+<div class="card" style="width: 18rem; margin-left: 50px; margin-bottom: 30px">
+  <div class="card-body">
+    <h5 class="card-title">{{request.user}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Numbers of delivery</h6>
+    <h1 style="font-weight: bolder;font-size: 30">{{book}}</h1>
+  </div>
+</div>
+
+
+
+
+</div>
+{%endblock%}

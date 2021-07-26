@@ -1,0 +1,21 @@
+{%extends 'restaurant/restaurant.html'%}   
+{%block 'all'%}
+<form method="post" enctype="multipart/form-data" class="table" style="padding:50px;width: 50%; border: solid black 2px;height: 300px; background-color: rgba(20,20,20); border-radius: 50px;margin-left: 200px">
+	{%csrf_token%}
+	<div >
+		<label  style="padding: 10px">Add Image</label><br/>
+		<input class="form-control" type="file" name="img" style="padding: 10px;width: 100%"><br/>
+		<input class="btn btn-danger" type="submit" name="Save" style="width: 100%"style="padding: 10px">
+	</div>
+</form>
+
+
+<h3 align="center">Images</h3>
+<div style="border: 2px solid black;">
+{%for i in image%}
+          <a href="{% url 'restaurant:reimg' id=i.id %}" style="margin-left: 20px;position: absolute;background-color: black; font-size: 20px; color: white">X</a>
+              <a href=""><img class="card1" src="{{i.img.url}}" alt="" style="width: 300px; height: 200px;margin-left: 10px"></a>
+              
+{%endfor%}
+</div>
+{%endblock%}

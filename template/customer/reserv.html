@@ -1,0 +1,18 @@
+{%extends 'customer/index.html'%}
+{%load staticfiles%}
+{%block 'all'%}
+
+<div class="container" style="min-height: 500px; width: 800px	">
+<form method="post" class="form" style="margin-left:100px ">
+	{%csrf_token%}
+	<img src="{%static 're.jpg'%}" style="height: 350px;width: 500px">
+	<div style=" width: 500px; margin-top:px">Inter number of person :-
+	<input type="number" placeholder="Enter number of person" style="width: 100%" class="form-control mb-5" name="num"><br/>
+	<input type="time" name="time" class="form-control" style="width: 100%"><br/>
+	<input type="date" name="date" class="form-control" style="width: 100%"><br/>
+	<input type="submit" value="Book" class="btn btn-danger mt-5" style="width: 100%" name="">
+
+	</div>
+</form>
+</div>
+{%endblock%}

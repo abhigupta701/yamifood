@@ -1,0 +1,18 @@
+{%extends 'admin.html'%}
+{%load staticfiles%}
+{%block 'all'%}
+<form class="form form-control card" style="margin-top:30px ;background-color: rgba(220,220,220);width: 600px; margin-left: 28%;padding: 50px" method="POST" enctype="multipart/form-data">
+	{%csrf_token%}
+	<label >Name</label>
+	<input class="input" type="text" value="{{rest.name}}" name="hn">
+	<label >Details</label>
+	<input class="input" type="text" value="{{rest.details}}" name="de">
+	<label >Location</label>
+	<input class="input" type="text" value="{{rest.location}}" name="lo">
+	<br/><br/>
+	<br/>
+	<input class="btn btn-primary" style="width: 100%;" type="submit" value="Update" name="">
+	
+
+</form>
+{%endblock%}

@@ -1,0 +1,43 @@
+{%extends 'customer/menu.html'%}
+{%load staticfiles%}
+{%block 'all'%}
+<form method="post">
+  {%csrf_token%}
+<select name="st" class="bar" style="width:200px;color:black!important;">
+	<option>State</option>
+  {%for i in state%}
+  <option value="{{i.id}}">{{i.sname}}</option>
+  {%endfor%}
+</select>
+<select name="cty" class="bar" style="width:200px;color:black!important;">
+	<option>City</option>
+  {%for i in city%}
+  <option value="{{i.id}}">{{i.cname}}</option>
+  {%endfor%}
+</select>
+<select name="ct" class="bar" style="width:200px;color:black!important;">
+	<option>Category</option>
+  {%for i in cat%}
+  <option value="{{i.id}}">{{i.rtype}}</option>
+  {%endfor%}
+</select>
+<input type='submit'value='search' class="bar">
+</form>
+<div class="row mt-3" style="padding:50px">
+{%for i in data%}
+          <div class="col-lg-3 col-md-6 mb-4" >
+            <div class="card" style="height: 420px;">
+              <a href="{% url 'customer:rest' id=i.id %}" ><img style="height:180px" class="card-img-top" src="{{i.image.url}}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title"><a href="i"></a></h4>  
+                <h5>restaurent name: {{i.name}}</h5>
+                <p class="card-text" style="overflow: auto; height: 100px"> {{i.details}}</p>
+              </div>
+              <small class="text-muted ml-3">
+                &#9733; &#9733; &#9733; &#9733; &#9734;
+              </small>
+            </div>
+          </div>
+{%endfor%}
+</div>
+{%endblock%}

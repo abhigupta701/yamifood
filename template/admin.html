@@ -1,0 +1,151 @@
+
+{%extends 'index.html'%}
+{%load staticfiles%}
+{%block 'nav'%}
+<header class="top-navbar">
+    <nav class="nav">
+    <div class="title"style="width: 55%"><img src="{% static 'logo.png' %}" alt="" class="logo"/>
+      <span class="navlist word">Food Delivery System</span>
+      
+    </div>
+    <ul>
+      <li><a class="navlist" href="/adminstuff/"><i class="fas fa-home"></i> Home</a></li>
+      <li><a class="navlist" href="/menu/"><i class="fas fa-utensils"></i> Menu</a></li>
+      <li><a class="navlist" href="/restaurants/"><i class="fas fa-pizza-slice"></i> Hotel</a></li>
+      <li><a class="navlist" href="/logout/"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+      <li><a class="navlist" href="#"><i class="far fa-user"></i> Profile</a></li>
+      
+    </ul>
+  </nav>
+  
+  
+  </header>
+{%endblock%}
+
+{%block 'all'%}
+
+
+<div class="row mt-5 container" style="margin-left: 100px" >
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card">
+              <a href="/verifyr/"><img class="card-img-top" src="{%static 'rest.gif'%}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="/verifyr/">Manage Restaurents Request</a>
+                </h4>
+                <h5></h5>
+                <p class="card-text"></p>
+              </div>
+              	
+            </div>
+          </div>
+
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="/verifydelivery/"><img class="card-img-top" src="{%static 'dali.gif'%}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="/verifydelivery/">Manage Delivery boys Request</a>
+                </h4>
+                
+              </div>
+             
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="/usermanage/"><img class="card-img-top" src="{%static 'user.gif'%}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="/usermanage/">Manage User</a>
+                </h4>
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="/usersearch/"><img class="card-img-top" src="{%static 'search.gif'%}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="/usersearch/">Search User</a>
+                </h4>
+                
+              </div>
+              
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="/counter/"><img class="card-img-top" src="{%static 'total.gif'%}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="/counter/">Total Collections</a>
+                </h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="/addaddr/"><img class="card-img-top" src="{%static 'adcity.gif'%}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="/addaddr/">Add Cities</a>
+                </h4>
+            
+              </div>
+
+
+              
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="/managerestursnt/"><img class="card-img-top" src="{%static 'restau.gif'%}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="/managerestursnt/">Manage Restaurant</a>
+                </h4>
+            
+              </div>
+
+
+              
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <a><img class="card-img-top" style="height: 180px;" src="{%static 'order.gif'%}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a >Order Count - {{counter}}</a>
+          
+                </h4>
+            
+              </div>
+
+
+              
+            </div>
+          </div>
+
+        <!---  <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">Item One</a>
+                </h4>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>
+            </div>
+          </div>-->
+
+      </div>
+{%endblock%}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+<html>
+<head>
+	<title>Restaurant</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{%static 'rest_style.css'%}">       
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
+<link rel="stylesheet" href="https://unpkg.com/charts.css/dist/charts.min.css">
+ 
+  <style>
+   body{background-color: black}
+    .mode {
+      float:right;
+    }
+    .change {
+      cursor: pointer;
+      border: 1px solid #555;
+      border-radius: 40%;
+      width: 20px;
+      text-align: center;
+      padding: 5px;
+      margin-left: 8px;
+    }
+    .dark{
+      background-color: #222;
+      color: #e6e6e6;
+
+
+    }
+    #my-chart.column {
+  height: 200px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+  </style>
+
+</head>
+<body>
+  {%block 'nav'%}
+	<nav class="nav">
+		<ul>
+			<li class="toggle btn btn-info "><span class="glyphicon glyphicon-th-list"></span>
+				<ul class="ul">
+					<a href="/restaurant/"><li class="li">home</li></a>
+          <a href="/restaurant/tablebook/"><li class="li">Reservations</li></a>
+					<a href="/restaurant/addfood/"><li class="li">Add Food Item</li></a>
+          <a href="/restaurant/addchef/"><li class="li">Add Chefs</li></a>
+          <a href="/restaurant/chef/"><li class="li">Chefs List</li></a>
+          <a href="/restaurant/staff/"><li class="li">Manage Staff</li></a>
+          <a href="/restaurant/addimage/"><li class="li">Add Restaurent Image</li></a>
+					<a href="/restaurant/foodlist/"><li class="li">View Food List</li></a>
+					<a href="/restaurant/collection/"><li class="li">View Collection</li></a>
+					<a href="/restaurant/orders/"><li class="li">Orders History</li></a>
+					<a href="/restaurant/currentorder/"><li class="li">Current Order</li></a>
+          <a href="/restaurant/ordernow/"><li class="li">Order Now</li></a>
+					<a href="/logout/"><li class="li">Logout</li></a>
+				</ul>
+			</li>
+			<dir class="nav_item">
+      <li class="li1" >
+        {%if rest%}
+        {{rest.name}}
+        {%else%}
+        {{user}}
+        {%endif%}
+      </li>
+			<a href="#"><li class="li1"></li></a>
+			<a href="#"><li class="li1"></li></a>
+			<a href="#"><li class="li1"></li></a>
+			<i class="fa fa-hamburger"></i>
+			</dir>
+		</ul>
+		
+	</nav>
+  {%endblock%}
+	<main>
+    <img src="{%static 'chef1.jpg' %}" style="position: absolute; width: 298px; height: 630px; opacity: 0.5;">
+		<div class="row mt-5 container" style="margin-left: 350px;width: 1000px; background-color: black; color:#fdba04" >
+      {%block 'all'%}
+         
+<div style="border:white sold 2px; margin-left: -60px">
+      <table class="charts-css column" style="height: 500px;width: 100%  ; margin-left: -5px; max-width: 100%; margin-bottom: 20px; overflow: auto;" id="my-chart">
+        <h2 align="center">statistics</h2>
+        <tbody>
+            {%for date, earn in data.items%} 
+            
+            <tr>
+              
+              <td style="--size: 0.{{earn}}; width: 50px;height: {{earn}}px; margin: 0 10px 20px 10px ; color: black; font-weight: bolder;">{{date}} <br/></td>
+
+            </tr>
+
+            {%endfor%}            
+        </tbody>
+      </table>
+
+            
+          {%endblock%}
+          </div>
+      </div>
+	</main>
+<!--	visitor wala global function se-->
+  
+</body>
+</html>

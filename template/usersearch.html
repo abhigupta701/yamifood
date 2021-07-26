@@ -1,0 +1,31 @@
+{%extends 'ordercounter.html'%}
+{%load staticfiles%}
+{%block 'all'%}
+
+<form method="post" class="card" style="width: 50%;margin-left: 25%;padding: 50px">
+	{%csrf_token%}
+	<input type="text" name="search" placeholder="enter user name or details" class="card p-2" style="width: 80%;margin-left: 10%"><br/>
+	<input type="submit" value="Search" style="margin-left: 20%" name="" class="btn btn-danger">
+</form>
+
+
+
+<table class="table">
+	<tr>
+		<th>Name</th>
+		<th>UserName</th>
+		<th>Email</th>
+		<th>Role</th>
+		<th>Mobile</th>
+	</tr>
+	{%for i in user1%}
+	<tr>
+		<td>{{i.user.first_name}} {{i.user.last_name}}</td>
+		<td>{{i.user.username}}</td>
+		<td>{{i.user.email}}</td>
+		<td>{{i.role}}</td>
+		<td>{{i.mobile}}</td>
+	</tr>
+	{%endfor%}
+</table>
+{%endblock%}

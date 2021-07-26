@@ -1,0 +1,31 @@
+{%extends 'restaurant/restaurant.html'%}
+{%block 'all'%}
+
+<h3 align="center">Current Orders</h3>
+<div>
+<table class="table" style="margin-left: -30px;width: 1100px">
+	<tr>
+		<th>booking Id</th>
+		<th>Time</th>
+		<th>Order Name</th>
+		<th>Delivery Boy Name</th>
+		
+		<th>User</th>
+		<th>Quantity</th>
+		<th>Processed</th>
+	</tr>
+	{%for i in book%}
+	<tr>
+		<td>{{i.bookingid}}</td>
+		<td>{{i.delevirytime}}</td>
+		<td>{{i.food.name}}</td>
+		<td>{{i.delivboy.user.user.first_name}}</td>
+		
+		<td>{{i.user.user.first_name}} {{i.user.user.last_name}}</td>
+		<td> {{i.qty}}</td>
+		<td><a href="{% url 'restaurant:processed' id=i.id %}">processed</a></td>
+	</tr>
+	{%endfor%}
+</table>
+</div>
+{%endblock%}

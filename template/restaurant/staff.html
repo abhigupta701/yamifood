@@ -1,0 +1,31 @@
+{%extends 'restaurant/restaurant.html'%}
+{%load staticfiles%}
+{%block 'all'%}
+
+
+<form method="post" class="table" style="padding:50px;width: 50%; border: solid black 2px;height: 370px; background-color: rgba(20,20,20); border-radius: 50px;margin-left: 200px; margin-top: 10px">
+	{%csrf_token%}
+	<div>
+		<label  style="padding: 10px">Add Staff Member</label><br/>
+		<input class="form-control" type="text" name="name" style="padding: 10px;width: 100%" placeholder="Enter Name"><br/>
+		<input class="form-control" type="text" name="post" style="padding: 10px;width: 100%" placeholder="Enter post"><br/>
+		<input class="form-control" type="number" name="salary" style="padding: 10px;width: 100%" placeholder="Enter Salary"><br/>
+		<input class="btn btn-danger" type="submit" name="Save" style="width: 100%"style="padding: 10px">
+	</div>
+</form>
+
+<table class="table">
+	<tr>
+		<th>Name</th>
+		<th>Post</th>
+		<th>Salary</th>
+	</tr>
+	{%for i in staff%}
+	<tr>
+		<td>{{i.name}}</td>
+		<td>{{i.post}}</td>
+		<td>{{i.salary}} ₹</td>
+	</tr>
+	{%endfor%}
+</table>
+{%endblock%}

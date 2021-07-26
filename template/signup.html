@@ -1,0 +1,196 @@
+{% extends 'index.html'%}
+{% load staticfiles %}
+<body class="sbody">
+{%block 'all'%}
+                        <div class="modal fade" id="rest" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content" style="width: 800px; background-color: rgba(220,220,220);margin-left: -120px; ">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="ModalLabel"><strong>Registor </strong> Restaurant</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body" >
+                                <div class="register-photo" style="height: 100px"> 
+                                    <div class="form-container" style="margin-top: -80px; width: 798px; margin-left: -16px; background-color: rgba(220,220,220);">
+                                        <form method="post" class="card" style="width: 800px;background-color: rgba(220,220,220);" action="/addrest/" enctype="multipart/form-data">
+                                            {%csrf_token%}
+                                          <div class="container" style="display: flex;"> 
+                                            <div>
+                                            <p style="font-weight: bold ">Fill Restaurant User Information Here</p>
+                                            <div class="form-group"><input class="form-control input" type="text" name="fn" placeholder="First Name" required></div>
+                                            <div class="form-group"><input class="form-control input" type="text" name="ln" placeholder="Last Name" required></div>
+                                            <div class="form-group"><input class="form-control input" type="text" name="un" placeholder="User Name" required></div>
+                                            <div class="form-group"><input class="form-control input" type="email" name="eml" placeholder="Email" required></div>
+                                            <div class="form-group"><input class="form-control input" type="password" name="pw" placeholder="Password" required></div>
+                                            <div class="form-group"><input class="form-control input" type="text" name="pn" placeholder="Phone Number" required></div>
+
+                                            <div class="form-group"><input class="form-control input" type="test" name="ad" placeholder="address" required></div>
+                                            <div class="form-group">
+                                            <div class="form-group"><input class="form-control input" type="file" name="img" placeholder="image" required></div>
+                                            </div>
+                                          </div><!--and first-->
+                                            <div style="margin-left: 110px">
+                                            <p style="font-weight: bold ">Fill Restaurant Information Here</p>
+                                            <div class="form-group"><input class="form-control input" type="text" name="hnm" placeholder="Restaurant/Hotel Name" required></div>
+                                            <div class="form-group"><input class="form-control input" type="text" name="dtl" placeholder="Details" required></div>
+                                            <div class="form-group"><input class="form-control input" type="text" name="since" placeholder="Since" required></div>
+                                            <div class="form-group"><input class="form-control input" type="text" name="mobile1" placeholder="Enter Mobile Number" required></div>
+                                            <div class="form-group"><select class="input form-control" name="ty">
+                                              {%for i in type%}
+                                              <option value="{{i.id}}">{{i.rtype}}</option>
+                                              {%endfor%}
+                                            </select></div>
+                                            <div class="form-group"><input class="form-control input" type="text" name="loct" placeholder="Location" required></div>
+                                            <div class="form-group"><select class="input form-control" name="city">
+                                              {%for i in data%}
+                                              <option value="{{i.id}}">{{i.cname}}</option>
+                                              {%endfor%}
+                                            </select></div>
+                                            
+                                            <div class="form-group">
+                                            <div class="form-group"><input class="form-control input" type="file" name="himg" placeholder="image" required></div>
+                                            </div>
+                                          </div><!--end second-->
+                                          </div><!--end main-->
+                                            <br>
+                                            <div class="form-group ">
+                                                <div class="form-check ml-5"><label class="form-check-label"><input class="form-check-input" type="checkbox"  required>I agree to the license terms.</label></div>
+                                            </div>
+                                            <div class="form-group"><input style="width: 100%" type="submit" class="btn btn-success btn-primary"></div>
+                                            <br/>
+                                            <a class="already" style="margin-left: -50px" href="">You already have an account? Login here.</a>
+                                        </form>
+                                    </div>
+                                </div>       
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+                        <div class="modal fade" id="customer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content" style="background-color: rgba(220,220,220)">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel"><strong>Registor </strong> Customer</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body" >
+                                <div class="register-photo" style="height: 100px"> 
+                                    <div class="form-container" style="margin-top: -100px;width: 498px;margin-left: -16px">
+                                        <form method="post" action="/adduser/" style="background-color: rgba(220,220,220); " enctype="multipart/form-data" class="card">
+                                            {%csrf_token%}
+                                            <div class="form-group"><input class="form-control input" type="text" name="fn" placeholder="First Name" required></div>
+                                            <div class="form-group"><input class="form-control input" type="text" name="ln" placeholder="Last Name" required></div>
+                                            <div class="form-group"><input class="form-control input" type="text" name="un" placeholder="User Name" required></div>
+                                            <div class="form-group"><input class="form-control input" type="email" name="eml" placeholder="Email" required></div>
+                                            <div class="form-group"><input class="form-control input" type="password" name="pw" placeholder="Password" required></div>
+                                            <div class="form-group"><input class="form-control input" type="text" name="pn" placeholder="Phone Number" required></div>
+                                            <div class="form-group"><input class="form-control input" type="test" name="ad" placeholder="address" required></div>
+
+                                            <div class="form-group">
+                                            <div class="form-group"><input class="form-control input" type="file" name="img" placeholder="image" required></div>
+                                            </div>
+                                            <br>
+                                            <div class="form-group">
+                                                <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox" required>I agree to the license terms.</label></div>
+                                            </div>
+                                            <div class="form-group"><input type="submit" class="btn btn-success btn-primary"></div>
+                                            <br/>
+                                            <a class="already" style="margin-left:-50px;" href="">You already have an account? Login here.</a>
+                                        </form>
+                                    </div>
+                                </div>                                                   
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+                        <div class="modal fade W-700"  id="delivery" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header" style="background-color: rgba(220,220,220)">
+                                <h5 class="modal-title" id="exampleModalLabel"><strong>Registor </strong> delivery</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body" style="background-color: rgba(220,220,220)">
+                                    <div class="form-container" >
+                                        <form method="post" class="input" style="width: 400px;background-color: rgba(220,220,220);margin-left: 30px;" action="/add_deli/" enctype="multipart/form-data">
+                                            {%csrf_token%}
+                                            <div class="form-group"><input class="input"  required type="text" name="fn" placeholder="First Name"></div>
+                                            <div class="form-group"><input class="input" type="text" name="ln" placeholder="Last Name" required></div>
+                                            <div class="form-group"><input class="input" type="text" name="un" placeholder="User Name" required></div>
+                                            <div class="form-group"><input class="input" type="email" name="eml" placeholder="Email" required></div>
+                                            <div class="form-group"><input class="input" type="password" name="pw" placeholder="Password" required></div>
+                                            <div class="form-group"><input class="input" type="text" name="pn" placeholder="Phone Number" required></div>
+                                            <div class="form-group"><input class="input" type="text" name="aad" placeholder="Aadhar Number" required></div>
+                                            <div class="form-group"><input class="input" type="test" name="ad" placeholder="address" required></div>
+
+                                            <div class="form-group"><select class="input" name="city">
+                                              {%for i in data%}
+                                              <option value="{{i.id}}">{{i.cname}}</option>
+                                              {%endfor%}
+                                            </select></div>
+                                            <div class="form-group">
+                                            <div class="form-group"><input class="input" type="file" name="img" placeholder="image" required></div>
+                                            </div>
+                                            <br>
+                                            <div class="form-group">
+                                                <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox" required>I agree to the license terms.</label></div>
+                                            </div>
+                                            <div class="form-group"><input type="submit" class="btn btn-success btn-primary"></div>
+                                            <br/>
+                                            <a class="already" style="margin-left: " href="">You already have an account? Login here.</a>
+                                        </form>
+                                    </div>      
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+
+                            <div class="container" style="display: flex;">
+                                <div class="card h-100" style="width: 300px; margin:50px; border: none">
+                                  <img class="card-img-top" src="{% static 'restau.gif'%}" alt="Card image cap" style="width: 100%;height: 200px">
+                                  <div class="card-body">
+                                    <h5 class="card-title">registor for restaurant</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#rest" style="width: 100%">
+                              create restaurant
+                            </button>
+                                  </div>
+                                </div>
+
+
+                                <div class="card h-100" style="width: 300px; margin:50px; border: none">
+                                  <img class="card-img-top" src="{% static 'user1.gif'%}" alt="Card image cap" style="width: 100%;height: 200px">
+                                  <div class="card-body">
+                                    <h5 class="card-title">Create User Account</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#customer" style="width: 100%">
+                              create customer
+                            </button>
+                                  </div>
+                                </div>
+
+
+                                <div class="card h-100" style="width: 300px; margin:50px; border: none">
+                                  <img class="card-img-top" src="{% static 'deli.gif'%}" alt="Card image cap" style="width: 100%;height: 200px">
+                                  <div class="card-body">
+                                    <h5 class="card-title">Registore for Delivery boy</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#delivery" style="width: 100%">
+                              create delivery
+                            </button>
+                                  </div>
+                                </div>
+                            </div>
+{%endblock%}
+  </body>

@@ -1,0 +1,361 @@
+body{
+	margin: 0px;
+	padding: 0px;
+	background-color: rgba(220,220,220) !important;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+a:hover{
+	text-decoration: none;
+	color: black;
+}
+
+ul{ 
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	width: 40%;
+}
+.nav{
+	margin: 10px;
+	width: 98%;
+	height: 60px;
+	background-color: rgba(220,220,220);
+	box-shadow:  -7px -7px 20px 0 rgba(255,255,255,0.7),7px 7px 20px 0 rgba(0,0,0,0.2);
+	display: inline-flex;
+	border-radius: 5px;
+	position: -webkit-sticky;
+	position: sticky;
+
+	}
+.title{
+	width: 65%;
+
+}
+.navlist{
+	color: darkolivegreen;
+    width: 140px!important;
+}
+.navlist:hover{
+	color: darkolivegreen;
+	text-decoration: none;
+}
+nav ul li,.search,.bar{
+	border:none;
+	outline: none;
+	min-width: 2%;
+	padding: 2% ;
+	border-radius: 10px;
+	margin: 13px 0 0 10px;
+	font-size: 12px;
+	text-transform: uppercase;
+	display: inline-block; 
+	color: darkolivegreen;
+	box-shadow: -7px -7px 20px 0 rgba(255,255,255,0.7),7px 7px 20px 0 rgba(0,0,0,0.2);
+
+}
+
+nav ul li:hover{
+	cursor: pointer;
+	box-shadow:inset -7px -7px 20px 0 rgba(255,255,255,0.7),inset 7px 7px 20px 0 rgba(0,0,0,0.2);
+
+ 
+}
+
+.d-block{
+	width: 500px;
+	height: 570px;
+	opacity: 0.8;
+}
+
+.carousel{
+	margin: 10px;
+	
+	width: 98%;
+	height: 570px;
+	box-shadow:  -7px -7px 20px 0 rgba(255,255,255,0.7),7px 7px 20px 0 rgba(0,0,0,0.2);
+}
+.search{
+	width: 200px;
+	height: 30px;
+	color: darkolivegreen;
+	background-color: rgba(220,220,220);
+}
+.bar{
+	padding: 10px;
+	
+	background-color: rgba(220,220,220);
+}
+.searchform{
+	padding: 0;
+	margin: 0;
+	position: relative;
+	float: right;
+	width: 50%;
+	
+}
+.bar:active {
+  
+  box-shadow:inset  -7px -7px 20px 0 rgba(255,255,255,0.7),inset 7px 7px 20px 0 rgba(0,0,0,0.2);
+}
+.logo{
+	margin-left: 20px;
+	height: 50px; 
+	width: 50px; 
+	margin-top: 5px;
+	border-radius: 50%;
+	box-shadow:  -7px -7px 20px 0 rgba(255,255,255,0.7),7px 7px 20px 0 rgba(0,0,0,0.2);
+}
+.inner-column{
+	padding: 15px;
+	height: 450px;
+	box-shadow:  -7px -7px 20px 0 rgba(255,255,255,0.7),7px 7px 20px 0 rgba(0,0,0,0.2);
+
+}
+.word{
+	
+	color: darkolivegreen;
+	font-weight: bolder;
+	margin-left: 80px; 
+
+}
+
+
+ .form-control{
+        width: 350px
+    }
+    
+ .btn{width: 350px;}
+ 
+ .register-photo {
+    background: #f1f7fc;
+    position: absolute;
+    padding: 80px 0
+}
+
+.register-photo .image-holder {
+    display: table-cell;
+    width: auto;
+    background: url({% static 'images/gallery-img-04.jpg'%});
+    background-size: cover
+}
+
+.register-photo .form-container {
+    display: table;
+    max-width: 900px;
+    width: 90%;
+    margin: 0 auto;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1)
+}
+
+.register-photo form {
+    display: table-cell;
+    width: 400px;
+    background-color: #ffffff;
+    padding: 40px 60px;
+    color: #505e6c
+}
+
+
+
+a{
+    text-decoration: none;
+}
+.card,.image,.input{
+	background-color: rgba(220,220,220)!important;
+	box-shadow:  -7px -7px 20px 0 rgba(255,255,255,0.7),7px 7px 20px 0 rgba(0,0,0,0.2);
+
+}
+.sbody{
+	background: rgba(220,220,220)!important;
+}
+
+       body {
+    color: #000;
+    overflow-x: hidden;
+    height: 100%;
+    background-color: #B0BEC5;
+    background-repeat: no-repeat
+}
+
+.card0 {
+    box-shadow: 0px 4px 8px 0px #757575;
+    border-radius: 0px;
+    margin-top: 50px; 
+}
+
+.card2 {
+    margin: 20px 40px 20px 0;
+    height: 380px;
+
+}
+
+.image {
+    width: 550px;
+    height: 380px;
+    margin: 20px 40px 0 40px;
+}
+
+.border-line {
+    border-right: 1px solid #EEEEEE
+}
+
+
+.line {
+    height: 1px;
+    width: 45%;
+    background-color: #E0E0E0;
+    margin-top: 10px
+}
+
+.or {
+    width: 10%;
+    font-weight: bold
+}
+
+.text-sm {
+    font-size: 14px !important
+}
+
+::placeholder {
+    color: black;
+    opacity: 1;
+    font-weight: 300
+}
+
+:-ms-input-placeholder {
+    color: #BDBDBD;
+    font-weight: 300
+}
+
+::-ms-input-placeholder {
+    color: #BDBDBD;
+    font-weight: 300
+}
+
+.input,
+textarea {
+    padding: 10px 12px 10px 12px;
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #2C3E50;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border-radius: 10px;
+}
+
+.input:focus,
+textarea:focus {
+    
+    outline-width: 0;
+    box-shadow:inset  -7px -7px 20px 0 rgba(255,255,255,0.7),inset 7px 7px 20px 0 rgba(0,0,0,0.2);
+}
+
+button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+a {
+    color: inherit;
+    cursor: pointer
+}
+
+.btn-blue {
+    background-color: #1A237E;
+    width: 150px;
+    color: #fff;
+    border-radius: 2px
+}
+
+.btn-blue:hover {
+    background-color: #000;
+    cursor: pointer
+}
+
+.bg-blue {
+    color: #fff;
+    background-color: #1A237E
+}
+
+
+@media screen and (max-width: 991px) {
+   
+    .image {
+        width: 300px;
+        height: 220px
+    }
+
+    .border-line {
+        border-right: none
+    }
+
+    .card2 {
+        border-top: 1px solid #EEEEEE !important;
+        margin: 0px 15px
+    }
+@media (max-width:991px) {
+    .register-photo form {
+        padding: 40px
+    }
+}
+
+.register-photo form h2 {
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 30px
+}
+
+.register-photo form .form-control {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #dfe7f1;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    color: inherit;
+    text-indent: 0px;
+    height: 40px
+}
+
+.register-photo form .form-check {
+    font-size: 13px;
+    line-height: 20px
+}
+
+.register-photo form .btn-primary {
+    background: green;
+    border: none;
+    border-radius: 4px;
+    padding: 11px;
+    box-shadow: none;
+    margin-top: 35px;
+    text-shadow: none;
+    outline: none !important
+}
+
+.register-photo form .btn-primary:hover,
+.register-photo form .btn-primary:active {
+    background: green
+}
+
+.register-photo form .btn-primary:active {
+    transform: translateY(1px)
+}
+
+.register-photo form .already {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #6f7a85;
+    opacity: 0.9;
+    text-decoration: none;
+}

@@ -1,0 +1,24 @@
+{%extends 'admin.html'%}
+{%load staticfiles%}
+{%block 'all'%}
+<div class="row mt-5 container" style="margin-left: 100px" >
+	{%for i in rest%}
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+            	<a href="{%url 'restremove' id=i.id%}" style="position: absolute;background-color: white; font-weight: bolder; margin-left: 230px;width: 15px;font-size: 20px;border-radius: 50%">X</a>
+              <a href="/usermanage/"><img class="card-img-top" src="{{i.image.url}}" style="height: 150px" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                   <p >Name: {{i.name}}</p>
+                  <p>Details: {{i.details}}</p>
+                  <p>Type: {{i.rtype.rtype}}</p>
+                  <a href="{%url 'restupdate' id=i.id%}">update</a>
+                </h4>
+                
+              </div>
+            </div>
+          </div>
+          {%endfor%}
+</div>
+
+{%endblock%}

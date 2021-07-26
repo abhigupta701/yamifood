@@ -1,0 +1,15 @@
+{%extends 'restaurant/restaurant.html'%}
+
+{%block 'all'%}
+<h1 align="center"> Add Chef</h1>
+<form method="post" enctype="multipart/form-data" class="table" style="width: 500px; margin-left: 200px; background-color: rgba(20,20,20);; padding: 50px;border-radius: 50px"> 
+	{%csrf_token%}
+	<label >Enter Name</label>
+	<input type="text"  class="form-control" name="name"><br/>
+	<label >Enter Post</label>
+	<input type="text"  class="form-control" name="post"><br/>
+	<label >Choose Image</label>
+	<input class="form-control"  type="file" name="img"><br/>
+	<input class="btn btn-danger" style="width: 100%" type="submit" name="Save" class="btn">
+</form>
+{%endblock%}

@@ -1,0 +1,22 @@
+{%extends 'restaurant/restaurant.html'%}
+{%block 'all'%}	
+<table class="table">
+	<tr>
+		<th></th>
+		<th>Name</th>
+		<th>Post</th>
+		<th>Details</th>
+		<th>Delete</th>
+		
+	</tr>
+	{%for i in chef%}
+	<tr>
+		<td><img style="width: 80px ;height: 80px" src="{{i.img.url}}"></td>
+		<td>{{i.name}}</td>
+		<td>{{i.post}}</td>
+		<td>{{i.details}}</td>
+		<td><a href="{%url 'restaurant:del' id=i.id%}">Delete</a></td>
+	</tr>
+	{%endfor%}
+</table>
+{%endblock%}

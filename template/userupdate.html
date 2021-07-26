@@ -1,0 +1,27 @@
+{%extends 'admin.html'%}
+{%load staticfiles%}
+{%block 'all'%}
+<form class="form form-control card" style="margin-top:30px ;background-color: rgba(220,220,220);width: 600px; margin-left: 28%;padding: 50px" method="POST" enctype="multipart/form-data">
+	{%csrf_token%}
+	<label >First Name</label>
+	<input class="input" type="text" value="{{user.first_name}}" placeholder="First Name" name="fn">
+	<label >Last Name</label>
+	<input class="input" type="text" value="{{user.last_name}}" placeholder="Last Name" name="ln">
+	<label >Email Address</label>
+	<input class="input" type="email" value="{{user.email}}" placeholder="Email Address" name="eml">
+	<label>Password</label>
+	<input class="input" type="password" placeholder="password" name="pwd">
+	<label>User Type</label>
+	<input class="input" type="text" placeholder="User Type" value="{{userd.role}}"  name="role">
+	<label>Address</label>
+	<input class="input" type="text" placeholder="Address" value="{{userd.address}}" name="add">
+	<label>Mobile Number</label>
+	<input class="input" type="text" placeholder="Mobile Number" value="{{userd.mobile}}" name="mn">
+	
+	<br/><br/>
+	<br/>
+	<input class="btn btn-primary" style="width: 100%;" type="submit" value="Update" name="">
+	
+
+</form>
+{%endblock%}

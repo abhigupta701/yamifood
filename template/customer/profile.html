@@ -1,0 +1,110 @@
+{%extends 'customer/home.html'%}
+
+{% block 'all'%}
+<div style="display: inline-flex; padding: 10px;width: 100%">
+<div style=" width: 300px; height: 600px; overflow: auto; margin: 20px" class="card">
+	<h1 align="center" class="card m-3">Order History</h1>
+<div class="row mt-3" style="padding:50px; ">
+{%for i in book%}
+          <div class="mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">{{i.food.name}}</h4>
+                <h5>restaurent name: {{i.rest.name}}</h5>
+                <p class="card-text"> price: {{i.food.price}}</p>
+              </div>
+            </div>
+          </div>
+{%endfor%}
+</div>
+</div>
+<!------------------------------------------------------------------------------------------------------------>
+<div  style="width: 700px; margin: 20px; padding: 25px" class="card">
+  <h2 align="center" class="card mb-3" >Current Order</h2>
+{%for i in order%}
+<div class="card" style="width: 100%">
+  <div class="card-header">
+  {{i.bookingid}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Time: {{i.delevirytime}}</h5>
+    <p class="card-text">Delivery boy :-{{i.delivboy.user.user.first_name}}</p>
+
+    {%ifequal i.status 0%}
+      <p>Status :-Order Placed</p>
+    {%endifequal%}
+
+    {%ifequal i.status 1%}
+      <p>Status :-Picked</p>
+    {%endifequal%}
+
+    {%ifequal i.status 2%}
+      <p>Status :-Order On the way</p>
+    {%endifequal%}
+
+  </div>
+   <span style="margin-left: 20px">Rating :-  </span>
+  <form method="POST" action="/customer/rating/">
+    {%csrf_token%}
+    <label style="margin-left: 20px">Restaurant </label>
+    <input type="number" min="1" max="5" value="1" name="rr" placeholder="restaurent rating">
+    <label style="margin-left: 20px">Delivery Boy </label>
+    <input type="number" min="1" max="5" value="1" name="dr" placeholder="delivboy rating">
+    <input type="hidden" name="rest" value="{{i.food.restaurant.id}}">
+    <input type="hidden" name="div" value="{{i.delivboy.user.id}}">
+    <input type="submit" name="" value="Rating" class="btn btn-danger" style="margin-bottom: 5px; width: 100px;margin-left: 20px; padding: 10px">
+    
+  </form>
+  <a href="{% url 'customer:cancel' id=i.id%}" class="btn btn-danger" style="width: 100px; padding: 10px;position: absolute; margin:243px 0 0 80%"> Cancel </a>
+  <iframe src="{{i.delivboy.user.address}}" width="600" height="450" style="border:0; border-radius: 5px; width: 293px;height: 216px; position: absolute; margin-left:340px;  " allowfullscreen="" loading="lazy"></iframe>
+</div>
+{%endfor%}
+</div>
+<!----------------------------------------------------------------------------------------------------------------->
+<div style="width: 230px; padding: 15px;margin:20px " class="card">
+  <a href="#" style="width: 100%" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"> Add Address</a>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <form method="POST">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal Title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body ml-5"> 
+              {%csrf_token%}
+              <label class="form">Address Name</label>
+              <input type="text" name="name" class="form-control" placeholder="Enter Address Name">
+              <label class="form">Address Link</label>
+              <input type="text" name="add" class="form-control" placeholder="Enter Address Link">
+              <label class="form">Mobile</label>
+              <input type="text" name="num" class="form-control" placeholder="Enter Mobile Number">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+         <input type="submit" value="Add Address" class="btn btn-primary">
+      </div>
+       </form>
+    </div>
+  </div>
+</div>
+<!------------------------------------------------------------------------------------------------------->
+  {%for i in add%}
+          <div class="mb-4 mt-3" style="">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title"></h4>
+                <h5>Address Name: {{i.cname}} </h5>
+              </div>
+            </div>
+          </div>
+    {%endfor%}
+</div><!-----------end div-->
+</div>
+{%endblock%}
+
+              
+     

@@ -1,0 +1,18 @@
+{%extends 'restaurant/restaurant.html'%}
+{%load staticfiles%}
+{%block 'all'%}
+<h1 align="center">Total Collection = {{a}} ₹</h1>
+<table class="table">
+	<tr>
+		<th>Dates</th>
+		<th>Day Collection</th>
+		
+	</tr>
+	{% for key, values in data.items %}
+	<tr>
+		<td>{{key}}</td>
+		<td>{{values}} ₹</td>
+	</tr>
+	{%endfor%}
+</table>
+{%endblock%}

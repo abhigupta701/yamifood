@@ -1,0 +1,23 @@
+{%extends 'admin.html'%}
+{%load staticfiles%}
+{%block 'all'%}
+<div class="containe card" style=" width: 800px; padding: 50px; margin-left: 20%"  >
+<form method="POST" action="/addstate/" class="card" style="padding: 50px">
+	<h3 align="center" class="card">Add State</h3>
+	{%csrf_token%}<br/>
+	<input type="text" name="st" placeholder="Enter State Name" class="bar"><br/>
+	<input type="submit" name="" value="Save" class="bar">
+</form><br/>
+<form method="POST" action="/addcity/" class="card p-5" >
+	<h3 class="card" align="center">Add City</h3><br/>
+	{%csrf_token%}
+	<select name="st"  class="bar">
+		{%for i in state%}
+		<option value="{{i.id}}">{{i.sname}}</option>
+		{%endfor%}
+	</select><br/>
+	<input type="text" name="ct" placeholder="Enter State Name"class="bar"><br/>
+	<input type="submit" name="" value="Save"class="bar">
+</form>
+</div>
+{%endblock%}
