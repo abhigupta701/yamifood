@@ -12,7 +12,7 @@ SECRET_KEY = 'ojlt_gxw#k=l@4dqiz4h8l_+kq2ni=m3dx@ncbv(kcanm$ag_l'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'testproject-one.herokuapp.com',
+#    'testproject-one.herokuapp.com',
 ]
 
 
@@ -36,7 +36,7 @@ SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+#    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -131,17 +131,17 @@ USE_L10N = True
 
 USE_TZ = True
 
+STATICFILES_DIRS = [STATIC_DIR]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
-STATIC_ROOT = STATIC_DIR
+#STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 LOGIN_REDIRECT_URL = '/googlee/'
 LOGOUT_REDIRECT_URL = '/login/'
 
-STATICFILES_DIRS = [STATIC_DIR]
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
